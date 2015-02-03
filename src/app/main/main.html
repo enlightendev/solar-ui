@@ -2,7 +2,53 @@
 
   <div ng-include="'components/navbar/navbar.html'"></div>
 
+  <h2>Present Value</h2>
 
+  <form
+    name="calcForm" novalidate
+    ng-submit="submit(calcForm.$valid)">
 
+    <div class="form-group">
+      <label>Future Value(e.g. fv = 10000):</label>
+      <input required type="number" ng-model="data.future_value"> </input>
+    </div>
+
+    <div class="form-group">
+      <label>Rate of Return(e.g. r = .1 for 10%):</label>
+      <input required type="number" ng-model="data.ror"> </input>
+    </div>
+
+    <div class="form-group">
+      <label>Number of compounding periods(e.g. n = 12 for monthly compounding):</label>
+      <input required type="number" ng-model="data.periods"> </input>
+    </div>
+
+    <button
+      ng-disabled="calcForm.$pristine || calcForm.$dirty && calcForm.$invalid"
+      class="btn btn-success">Calculate Present Value
+    </button>
+  </form>
+
+  <div class="container">
+    <div class="row" style="padding-top: 10px">
+      [ <a href="" ng-click="predicate=''">unsorted</a> ]
+      <table class="table table-striped table-hover table-condensed">
+        <tr>
+          <th><a href="" ng-click="predicate = 'FV'; reverse=!reverse">Future Value</a></th>
+          <th><a href="" ng-click="predicate = 'r'; reverse=!reverse">Rate</a></th>
+          <th><a href="" ng-click="predicate = 'n'; reverse=!reverse">N</a></th>
+          <th><a href="" ng-click="predicate = 'PV'; reverse=!reverse">Present Value</a></th>
+          <th>Status</th>
+        </tr>
+        <tr ng-repeat="calculation in calculations | orderBy:predicate:reverse ">
+          <td>{{ calculation.FV }}</td>
+          <td>{{ calculation.r }}</td>
+          <td>{{ calculation.n }}</td>
+          <td>{{ calculation.PV }}</td>
+          <td>{{ calculation.status }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
 </div>

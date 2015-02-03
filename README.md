@@ -20,6 +20,13 @@ Front end code for solar.
 
 * installing dependencies
 - bower install fontawesome --save
+
+
+## CORS
+
+C:\Program Files (x86)\Google\Chrome\Application>chrome.exe --disable-web-security
+
+
 ## Reference
 
 * tools and utilities

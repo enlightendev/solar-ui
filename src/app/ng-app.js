@@ -6,7 +6,7 @@ angular.module('solarUi', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'r
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl as mainCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
