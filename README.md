@@ -1,6 +1,9 @@
 ## About
 
-Front end code for solar.
+Front end code for APL/REST Demo. This client will make a call to an end point served by apl. 
+This is for POC to demonstrate talking to APL infrastructure. APL returns a calculation result via http and stores 
+result in DB (MySQL).
+
 
 ## Core Technology
 - Angular
